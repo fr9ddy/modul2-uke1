@@ -4,14 +4,17 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Repository<int> repositoryInt = new Repository<int>();
-        Repository<string> repositoryString = new Repository<string>();
-        Repository<double> repositoryDouble = new Repository<double>();
+        Repository<int> repoInt = new();
+        Repository<string> repoString = new();
+        Repository<double> repoDouble = new();
 
-        repositoryDouble.Add(7.5);
-        repositoryInt.Add(7);
+        repoDouble.Add(7.5);
+        repoInt.Add(7);
 
-        var doubleTimesInt = repositoryDouble.GetByIndex(0) * repositoryInt.GetByIndex(0);
+        var doubleTimesInt = repoDouble.GetByIndex(0) * repoInt.GetByIndex(0);
         Console.WriteLine($"repDouble * repInt = {doubleTimesInt}");
+        Console.WriteLine(repoDouble.GetByIndex(0));
+
+
     }
 }

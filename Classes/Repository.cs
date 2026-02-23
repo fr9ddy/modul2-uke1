@@ -6,37 +6,42 @@ namespace uke1.Classes;
 public class Repository<T> : IRepository<T>
 {
 
-    private List<T> items;
+    private List<T> _items;
     public Repository()
     {
-        items = new List<T>();
+        _items = new List<T>();
     }
     public List<T> GetAll()
     {
-        return items;
+        return _items;
     }
     public void Add(T item)
     {
-        items.Add(item);
+        _items.Add(item);
     }
 
 
     public T GetByIndex(int index)
     {
-        if (index < 0 || index >= items.Count)
+        if (index < 0 || index >= _items.Count)
         {
             throw new IndexOutOfRangeException("Index out of bounds");
         }
-        return items[index];
+        return _items[index];
     }
 
     public void Remove(T item)
     {
-        items.Remove(item);
+        _items.Remove(item);
     }
 
     public T[] ToArray()
     {
-        return items.ToArray();
+        return _items.ToArray();
+    }
+
+    public bool IsEmpty()
+    {
+        return _items == null || _items.Count == 0;
     }
 }
